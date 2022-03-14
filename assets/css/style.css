@@ -1,0 +1,78 @@
+:root {
+   --border-radius: 5px;
+}
+
+* {
+   box-sizing: border-box;
+}
+
+header {
+   background: linear-gradient(to left, purple, blue);
+   justify-content: center;
+   align-items: center;
+   padding: 5px;
+   margin: 20px;
+}
+
+header h1 {
+   text-align: center;
+   color: white;
+}
+
+main {
+   margin-top: 10px;
+}
+
+button {
+   border-radius: var(--border-radius);
+   width: 100%;
+   margin-bottom: 10px;
+   padding: 5px;
+}
+
+.city-search {
+}
+
+.city-input {
+   width: 100%;
+   margin-bottom: 10px;
+   border-radius: var(--border-radius);
+}
+
+.search-btn {
+   background: linear-gradient(to left, purple, blue);
+   color: white;
+   margin-bottom: 5px;
+}
+
+.breaker-line {
+   border-bottom: 2px solid black;
+   margin-bottom: 20px;
+   padding-bottom: 20px;
+}
+
+.city-btn {
+   background-color: lightgray;
+}
+
+
+
+.weather-display {
+   border: 1px solid lightgray;
+   margin-top: 10px;
+   border-radius: var(--border-radius);
+   align-items: center;
+}
+
+.flex-row {
+   display: flex;
+   flex-wrap: wrap;
+}
+
+.flex-column {
+   display: flex;
+   flex-direction: column;
+   flex-wrap: wrap;
+}
+
+
