@@ -62,6 +62,7 @@ button {
    margin-top: 10px;
    border-radius: var(--border-radius);
    align-items: center;
+   height: 70%;
 }
 
 .flex-row {
