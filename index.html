@@ -11,14 +11,127 @@
    <link href="./assets/css/style.css" rel="stylesheet">
 </head>
 
-<body class="flex-column min-100-vh">
+<body>
    <header class="hero">
       <h1 class>
          Totally Accurate Weather App
       </h1>
    </header>
 
-   <main class="flex-row justify-content-around">
+   <main class="container-fluid d-flex justify-content-around">
+      <div class="row flex-row col-12 col-md-3 justify-content-start">
+         <h3>Search for a City: </h3>
+         <input type="text" class="city-input" placeholder="San Diego">
+         <button class="search-btn">Search</button>
+         <div class="breaker-line"></div>
+
+         <button class="city-btn">
+            BURLINGTON
+         </button>
+         <button class="city-btn">
+            IOWA CITY
+         </button>
+         <button class="city-btn">
+            DES MOINES
+         </button>
+         <button class="city-btn">
+            BURLINGTON
+         </button>
+         <button class="city-btn">
+            IOWA CITY
+         </button>
+         <button class="city-btn">
+            DES MOINES
+         </button>
+         <button class="city-btn">
+            BURLINGTON
+         </button>
+         <button class="city-btn">
+            IOWA CITY
+         </button>
+         <button class="city-btn">
+            DES MOINES
+         </button>
+         <button class="city-btn">
+            BURLINGTON
+         </button>
+         <button class="city-btn">
+            IOWA CITY
+         </button>
+         <button class="city-btn">
+            DES MOINES
+         </button>
+      </div>
+
+      <div class="row flex-row col-12 col-md-8 justify-content-around">
+         <div class="flex-column">
+            <div class="weather-display">
+               <h3 class="city">
+                  CITY (DATE)
+               </h3>
+               <p class="temp">
+                  TEMP: 75.4
+               </p>
+               <p class="wind">
+                  WIND: 6.67 MPH
+               </p>
+               <p class="humidity">
+                  HUMIDITY: 45%
+               </p>
+               <p class="uv-index">
+                  UV INDEX 0.47
+               </p>
+            </div>
+            <h3 class="forecast-text">5-day Forecast</h3>
+            <div class="flex-row card-row justify-content-between">
+               <div class="card five-day">
+                  <div class="card-body">
+                     <h5 class="card-date">Weather Date</h5>
+                     <p class="card-img">image</p>
+                     <p class="card-temp">Temp</p>
+                     <p class="card-wind">Wind</p>
+                     <p class="card-humidity">Humidity</p>
+                  </div>
+               </div>
+               <div class="card five-day">
+                  <div class="card-body">
+                     <h5 class="card-date">Weather Date</h5>
+                     <p class="card-img">image</p>
+                     <p class="card-temp">Temp</p>
+                     <p class="card-wind">Wind</p>
+                     <p class="card-humidity">Humidity</p>
+                  </div>
+               </div>
+               <div class="card five-day">
+                  <div class="card-body">
+                     <h5 class="card-date">Weather Date</h5>
+                     <p class="card-img">image</p>
+                     <p class="card-temp">Temp</p>
+                     <p class="card-wind">Wind</p>
+                     <p class="card-humidity">Humidity</p>
+                  </div>
+               </div>
+               <div class="card five-day">
+                  <div class="card-body">
+                     <h5 class="card-date">Weather Date</h5>
+                     <p class="card-img">image</p>
+                     <p class="card-temp">Temp</p>
+                     <p class="card-wind">Wind</p>
+                     <p class="card-humidity">Humidity</p>
+                  </div>
+               </div>
+               <div class="card five-day">
+                  <div class="card-body">
+                     <h5 class="card-date">Weather Date</h5>
+                     <p class="card-img">image</p>
+                     <p class="card-temp">Temp</p>
+                     <p class="card-wind">Wind</p>
+                     <p class="card-humidity">Humidity</p>
+                  </div>
+               </div>
+            </div>
+   </main>
+   <!-- <div class="flex-row col-12 col-md-3 justify-content-around">
       <div class="col-12 col-md-3 city-search">
          <h3 class="city-text">Search for a City:</h3>
          <input type="text" class="city-input" placeholder="San Diego">
@@ -36,26 +149,46 @@
          <button class="city-btn">
             DES MOINES
          </button>
+         <button class="city-btn">
+            BURLINGTON
+         </button>
+         <button class="city-btn">
+            IOWA CITY
+         </button>
+         <button class="city-btn">
+            DES MOINES
+         </button>
       </div>
+   </div>
 
-      <div class="col-12 col-md-8 weather-display">
-         <h3 class="city">
-            CITY (DATE)
-         </h3>
-         <p class="temp">
-            TEMP: 75.4
-         </p>
-         <p class="wind">
-            WIND: 6.67 MPH
-         </p>
-         <p class="humidity">
-            HUMIDITY: 45%
-         </p>
-         <p class="uv-index">
-            UV INDEX 0.47
-         </p>
+   <div class="flex-row col-12 col-md-8 weather-display justify-content-around align-items-start">
+      <h3 class="city">
+         CITY (DATE)
+      </h3>
+      <p class="temp">
+         TEMP: 75.4
+      </p>
+      <p class="wind">
+         WIND: 6.67 MPH
+      </p>
+      <p class="humidity">
+         HUMIDITY: 45%
+      </p>
+      <p class="uv-index">
+         UV INDEX 0.47
+      </p>
+   </div>
+
+   <div class="card" style="width: 18rem;">
+      <div class="card-body">
+         <h5 class="card-title">Card title</h5>
+         <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+         <a href="#" class="card-link">Card link</a>
+         <a href="#" class="card-link">Another link</a>
       </div>
-   </main>
+   </div> -->
    <script src="./assets/js/javascript.js"></script>
 </body>
 

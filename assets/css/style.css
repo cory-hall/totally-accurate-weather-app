@@ -30,6 +30,9 @@ button {
    padding: 5px;
 }
 
+.container {
+}
+
 .city-search {
 }
 
@@ -55,14 +58,17 @@ button {
    background-color: lightgray;
 }
 
-
-
 .weather-display {
    border: 1px solid lightgray;
-   margin-top: 10px;
+   margin: 10px 0px;
+   padding-left: 10px;
    border-radius: var(--border-radius);
-   align-items: center;
-   height: 70%;
+}
+
+.five-day {
+   width: 14rem;
+   background-color: blue;
+   color: white;
 }
 
 .flex-row {
@@ -75,5 +81,7 @@ button {
    flex-direction: column;
    flex-wrap: wrap;
 }
+
+
 
 
