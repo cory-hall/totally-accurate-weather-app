@@ -30,15 +30,10 @@ button {
    padding: 5px;
 }
 
-.container {
-}
-
-.city-search {
-}
-
-.city-input {
+.city-input, .state-input, .country-input {
    width: 100%;
    margin-bottom: 10px;
+   padding: 5px;
    border-radius: var(--border-radius);
 }
 
@@ -65,8 +60,38 @@ button {
    border-radius: var(--border-radius);
 }
 
+.city {
+   font-size: 2rem;
+   font-weight: bolder;
+}
+
+.uv-index {
+   width: 115px;
+   border-radius: var(--border-radius);
+}
+
+.uv-green {
+   background: greenyellow;
+}
+
+.uv-yellow {
+   background-color: yellow;
+}
+
+.uv-orange {
+   background-color: orange;
+}
+
+.uv-red {
+   background-color: red;
+}
+
+.uv-purple {
+   background-color: purple;
+}
+
 .five-day {
-   width: 14rem;
+   width: 13rem;
    background-color: blue;
    color: white;
 }
