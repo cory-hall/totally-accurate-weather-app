@@ -24,7 +24,7 @@
             <h3>Search for a City: </h3>
             <input type="text" class="city-input" placeholder="San Diego">
             <input type="text" class="state-input" placeholder="CA (use to refine results)" maxlength="2">
-            <input type="text" class="country-input" placeholder="US" maxlength="2">
+            <input type="text" class="country-input" placeholder="US (use to refine results)" maxlength="2">
             <button class="search-btn">Search</button>
             <div class="breaker-line"></div>
 
@@ -83,12 +83,12 @@
                <p class="humidity">
                   ---
                </p>
-               <p class="uv-index">
+               <div class="uv-index">
                   ---
-               </p>
+               </div>
             </div>
-            <h3 class="forecast-text">5-day Forecast:</h3>
-            <div class="flex-row card-row justify-content-between">
+            <h3 class="forecast-text"></h3>
+            <div class="flex-row card-row justify-content-around">
                <!-- <div class="card five-day">
                   <div class="card-body">
                      <h5 class="card-date">Weather Date</h5>

@@ -57,6 +57,7 @@ button {
    border: 1px solid lightgray;
    margin: 10px 0px;
    padding-left: 10px;
+   padding-bottom: 10px;
    border-radius: var(--border-radius);
 }
 
@@ -64,9 +65,13 @@ button {
    font-size: 2rem;
    font-weight: bolder;
 }
-
 .uv-index {
-   width: 115px;
+   display: flex;
+}
+
+.uv-number {
+   width: 50px;
+   text-align: center;
    border-radius: var(--border-radius);
 }
 
@@ -90,10 +95,26 @@ button {
    background-color: purple;
 }
 
+.card {
+   align-content: center;
+   align-items: center;
+}
+
 .five-day {
    width: 13rem;
-   background-color: blue;
+   margin-bottom: 5px;
+   padding-bottom: 5px;
+   background-color: purple;
    color: white;
+}
+
+.card-date {
+   text-align: center;
+}
+
+.card-img {
+   height: 50%;
+   width: 50%;
 }
 
 .flex-row {

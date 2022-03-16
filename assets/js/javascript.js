@@ -15,13 +15,14 @@ function searchButtonHandler(event) {
    var stateInput = stateInputEl.value.trim();
    var countryInput = countryInputEl.value.trim();
 
-   if (cityInput && countryInput) {
+   if (cityInput) {
       getCords(cityInput, stateInput, countryInput)
 
       cityInputEl.value = "";
       stateInputEl.value = "";
       countryInputEl.value = "";
-
+   } else {
+      alert("Please enter a city.");
    }
 };
 
@@ -58,9 +59,13 @@ function getWeather(cityInput, lat, lon) {
             var icon = data.current.weather[0].icon;
 
             writeWeather(cityInput, temp, wind, humidity, uvi, icon);
+            clearFiveDay();
             writeFiveDay(data.daily);
          })
       }
+   })
+   .catch(function (error) {
+      alert("Unable to get your weather.");
    })
 };
 
@@ -76,7 +81,7 @@ function writeWeather(cityInput, temp, wind, humidity, uvi, icon) {
 
    cityNameEl.textContent = cityInput.toUpperCase() + " (" + today + ")";
    cityNameEl.appendChild(iconEl);
-   tempEl.textContent = "Temp: " + temp + "degree F";
+   tempEl.textContent = "Temp: " + temp + degree + "F";
    windEl.textContent = "Wind: " + wind + " MPH";
    humidityEl.textContent = "Humidity: " + humidity + "%";
    uvScale(uvi);
@@ -87,16 +92,22 @@ function writeFiveDay(data) {
    console.log(data)
 
    var cardRowEl = document.querySelector(".card-row");
+   var forecastTextEl = document.querySelector(".forecast-text");
+   forecastTextEl.textContent = "5-day Forecast:"
 
    for (var i = 0; i < 5; i++) {
-
       var tempMax = data[i].temp.max;
       var tempMin = data[i].temp.min;
-      var wind = data[i].wind;
+      var wind = data[i].wind_speed;
       var humidity = data[i].humidity;
 
+      var iconEl = document.createElement("img");
+      var icon = data[i].weather[0].icon;
+      var weatherIcon = "http://openweathermap.org/img/w/" + icon + ".png"
+      iconEl.src = weatherIcon;
+
       var cardEl = document.createElement("div");
-      cardEl.className = "card five-day";
+      cardEl.className = "card five-day justify-content-around";
 
       var cardBodyEl = document.createElement("div");
       cardBodyEl.className = "card-body"
@@ -104,26 +115,26 @@ function writeFiveDay(data) {
 
       var cardDateEl = document.createElement("h5");
       cardDateEl.className = "card-date";
-      moment().add(i + 1, "d");
-      cardDateEl.textContent = today;
+      var tomorrow = moment().add(i + 1, "d");
+      cardDateEl.textContent = tomorrow.format("M/D/YYYY");
       cardEl.appendChild(cardDateEl);
 
-      var cardImgEl = document.createElement("img");
-      cardImgEl.className = "card-img";
+      iconEl.className = "card-img";
+      cardEl.appendChild(iconEl);
 
       var cardTempEl = document.createElement("p");
       cardTempEl.className = "card-temp";
-      cardTempEl.textContent = temp + degree + " F";
+      cardTempEl.textContent = "Temp: " + tempMin + degree + "F - " + tempMax + degree + "F";
       cardEl.appendChild(cardTempEl);
 
       var cardWindEl = document.createElement("p");
       cardWindEl.className = "card-wind";
-      cardWindEl.textContent = wind + " MPH";
+      cardWindEl.textContent = "Wind: " + wind + " MPH";
       cardEl.appendChild(cardWindEl);
 
       var cardHumidityEl = document.createElement("p");
       cardHumidityEl.className = "card-humidity";
-      cardHumidityEl.textContent = humidity + "%"
+      cardHumidityEl.textContent = "Humidity: " + humidity + "%"
       cardEl.appendChild(cardHumidityEl);
 
       cardRowEl.appendChild(cardEl);
@@ -131,25 +142,54 @@ function writeFiveDay(data) {
 }
 
 function uvScale(uvi) {
-   var eviEl = document.querySelector(".uv-index");
-   var uviText = "UV Index: " + uvi;
+   var uviEl = document.querySelector(".uv-index");
+   var uviNumEl = document.createElement("div");
+   // var uviText = "UV Index: " + uvi;
+
+   console.log(uvi);
 
    if (uvi <= 2) {
-      eviEl.classList.add("uv-green");
-      eviEl.textContent = uviText;
+      uviNumEl.className = "uv-green uv-number";
+      uviNumEl.textContent = " " + uvi;
+      uviEl.textContent = "UV Index: ";
+      uviEl.appendChild(uviNumEl);
+
    } else if (uvi > 2 && uvi <= 5) {
-      eviEl.classList.add("uv-yellow");
-      eviEl.textContent = uviText;
+      uviNumEl.className = "uv-yellow uv-number";
+      uviNumEl.textContent = " " + uvi;
+      uviEl.textContent = "UV Index: ";
+      uviEl.appendChild(uviNumEl);
+
    } else if (uvi > 5 && uvi <= 7) {
-      eviEl.classList.add("uv-orange");
-      eviEl.textContent = uviText;
+      uviNumEl.className = "uv-orange uv-number";
+      uviNumEl.textContent = " " + uvi;
+      uviEl.textContent = "UV Index:  ";
+      uviEl.appendChild(uviNumEl);
+
    } else if (uvi > 7 && uvi <= 10) {
-      eviEl.classList.add("uv-red");
-      eviEl.textContent = uviText;
+      uviNumEl.className = "uv-red uv-number";
+      uviNumEl.textContent = " " + uvi;
+      uviEl.textContent = "UV Index: ";
+      uviEl.appendChild(uviNumEl);
+
    } else {
-      eviEl.classList.add("uv-purple");
-      eviEl.textContent = uviText;
+      uviNumEl.className = "uv-purple uv-number";
+      uviNumEl.textContent = " " + uvi;
+      uviEl.textContent = "UV Index: ";
+      uviEl.appendChild(uviNumEl);
    }
+}
+
+function clearFiveDay() {
+   var cardRowEl = document.querySelector(".card-row");
+   var forecastTextEl = document.querySelector(".forecast-text")
+
+   cardRowEl.innerHTML = "";
+   forecastTextEl.innerHTML = "";
+}
+
+function createCityButton() {
+
 }
 
 searchBtnEl.addEventListener("click", searchButtonHandler)
