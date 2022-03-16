@@ -209,6 +209,9 @@ function createCityButton(cityName, lat, lon) {
    } else {
       for (var i = 0; i < savedCities.length; i++) {
          if (cityName != savedCities[i].cityName) {
+            if(cityName == savedCities[i].cityName) {
+               return;
+            }
             savedCities.push(tempArray);
             cityBtnColEl.appendChild(cityBtnEl);
          }
@@ -221,8 +224,8 @@ function cityButtonWeatherGenerator(event) {
    var target = event.target;
 
    var cityInput = target.textContent;
-   var lat = target.dataset.lat;
-   var lon = target.dataset.lon;
+   var lat = parseFloat(target.dataset.lat);
+   var lon = parseFloat(target.dataset.lon);
 
    getWeather(cityInput, lat, lon)
 }
