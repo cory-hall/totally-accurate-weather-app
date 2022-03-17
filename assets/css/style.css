@@ -1,3 +1,4 @@
+/* Global styles */
 :root {
    --border-radius: 5px;
 }
@@ -6,6 +7,7 @@
    box-sizing: border-box;
 }
 
+/* Header styles */
 header {
    background: linear-gradient(to left, purple, blue);
    justify-content: center;
@@ -23,6 +25,7 @@ main {
    margin-top: 10px;
 }
 
+/* All buttons */
 button {
    border-radius: var(--border-radius);
    width: 100%;
@@ -30,6 +33,7 @@ button {
    padding: 5px;
 }
 
+/* Input boxes */
 .city-input, .state-input, .country-input {
    width: 100%;
    margin-bottom: 10px;
@@ -37,6 +41,7 @@ button {
    border-radius: var(--border-radius);
 }
 
+/* Search box styles */
 .search-btn {
    background: linear-gradient(to left, purple, blue);
    color: white;
@@ -53,6 +58,7 @@ button {
    background-color: lightgray;
 }
 
+/* Weather display box styles */
 .weather-display {
    border: 1px solid lightgray;
    margin: 10px 0px;
@@ -95,6 +101,7 @@ button {
    background-color: purple;
 }
 
+/* Card styles */
 .card {
    align-content: center;
    align-items: center;
@@ -117,6 +124,7 @@ button {
    width: 50%;
 }
 
+/* Adjusting bootstrap */
 .flex-row {
    display: flex;
    flex-wrap: wrap;
