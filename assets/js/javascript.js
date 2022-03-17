@@ -13,9 +13,9 @@ var apiKey = "f96e5fd71a5037acc5f58ee9734e885b";
 function searchButtonHandler(event) {
    event.preventDefault();
 
-   var cityInput = cityInputEl.value.trim();
-   var stateInput = stateInputEl.value.trim();
-   var countryInput = countryInputEl.value.trim();
+   var cityInput = cityInputEl.value.trim().toLowerCase();
+   var stateInput = stateInputEl.value.trim().toLowerCase();
+   var countryInput = countryInputEl.value.trim().toLowerCase();
 
    if (cityInput) {
       getCords(cityInput, stateInput, countryInput)
@@ -197,25 +197,59 @@ function createCityButton(cityName, lat, lon) {
    cityBtnEl.dataset.lon = lon;
    cityBtnEl.textContent = cityName;
 
-   var tempArray = {
+   var tempObj = {
       "cityName": cityName,
       "lat": lat,
       "lon": lon
    }
 
+   // if array is empty
    if (savedCities.length === 0) {
-      savedCities.push(tempArray);
+      // push the tempArray Object to the savedCities array
+      savedCities.push(tempObj);
+      // append the button to the column
       cityBtnColEl.appendChild(cityBtnEl);
+      console.log(cityName);
+      console.log(savedCities[0].cityName)
    } else {
-      for (var i = 0; i < savedCities.length; i++) {
-         if (cityName != savedCities[i].cityName) {
-            if(cityName == savedCities[i].cityName) {
-               return;
-            }
-            savedCities.push(tempArray);
-            cityBtnColEl.appendChild(cityBtnEl);
-         }
+      var test = savedCities.some(i => i.cityName.includes(cityName));
+
+      console.log(test);
+
+      if (r !== true) {
+         savedCities.push(tempObj);
+         cityBtnColEl.appendChild(cityBtnEl);
       }
+      // for (var i = 0; i < savedCities.length; i++) {
+      //    if (savedCities[i].includes(cityName)) {
+      //       console.log("MATCH");
+      //    } else {
+      //       savedCities.push(tempArray);
+      //       cityBtnColEl.appendChild(cityBtnEl);
+      //    }
+      // }
+
+      // for (var i = 0; i < savedCities.length; i++) {
+      //    if (cityName == savedCities[i].cityName) {
+      //       break
+      //    } else {
+      //       savedCities.push(tempArray);
+      //       cityBtnColEl.appendChild(cityBtnEl);
+      //    }
+      // }
+
+
+      // //for (var i = 0; i < savedCities.length; i++) {
+      //    console.log(cityName);
+      //    console.log(savedCities[i].cityName);
+      //    if (cityName != savedCities[i].cityName) {
+      //       if(cityName == savedCities[i].cityName) {
+      //          return;
+      //       }
+      //       savedCities.push(tempArray);
+      //       cityBtnColEl.appendChild(cityBtnEl);
+      //    }
+      // //}
    }
    console.log(savedCities);
 };
@@ -228,6 +262,14 @@ function cityButtonWeatherGenerator(event) {
    var lon = parseFloat(target.dataset.lon);
 
    getWeather(cityInput, lat, lon)
+}
+
+function saveWeather() {
+
+}
+
+function loadWeather() {
+   
 }
 
 searchBtnEl.addEventListener("click", searchButtonHandler);
