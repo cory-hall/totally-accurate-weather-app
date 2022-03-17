@@ -16,4 +16,5 @@ to see the app in action.
 <img src="assets\images\week-6-screenshot.png" width=75% height=75%> <br>
 
 ## Credit
-All HTML, CSS, and JavaScript was done by Cory Hall.
+All HTML, CSS, and JavaScript was done by Cory Hall. <br>
+All API calls are supplied by https://openweathermap.org/
