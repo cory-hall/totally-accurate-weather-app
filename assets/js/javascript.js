@@ -40,15 +40,15 @@ function searchButtonHandler(event) {
 function getCords(cityInput, stateInput, countryInput) {
    var lat = "";
    var lon = "";
-   var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + stateInput + "," + countryInput + "&limit=1&appid=" + apiKey;
+   var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + stateInput + "," + countryInput + "&limit=1&appid=" + apiKey;
 
    // not every country has a state, so allow the state input field to be left empty
    if (!stateInput) {
-      apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + countryInput + "&limit=1&appid=" + apiKey;
+      apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + countryInput + "&limit=1&appid=" + apiKey;
    }
 
    if (!stateInput && !countryInput) {
-      apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=" + apiKey;
+      apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=" + apiKey;
    }
    // fetch data from api
    fetch(apiUrl).then(function (response) {
