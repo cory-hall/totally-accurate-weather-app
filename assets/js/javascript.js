@@ -106,7 +106,7 @@ function getWeather(cityInput, lat, lon) {
 // function to write the current day weather block
 function writeWeather(cityInput, temp, wind, humidity, uvi, icon) {
    // get current weather icon
-   var weatherIcon = "http://openweathermap.org/img/w/" + icon + ".png";
+   var weatherIcon = "https://openweathermap.org/img/w/" + icon + ".png";
    // get current weather block html elements
    var cityNameEl = document.querySelector(".city");
    var tempEl = document.querySelector(".temp");
@@ -150,7 +150,7 @@ function writeFiveDay(data) {
       // generate weather icon
       var iconEl = document.createElement("img");
       var icon = data[i].weather[0].icon;
-      var weatherIcon = "http://openweathermap.org/img/w/" + icon + ".png"
+      var weatherIcon = "https://openweathermap.org/img/w/" + icon + ".png"
       iconEl.src = weatherIcon;
 
       // create card div
