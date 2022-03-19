@@ -53,7 +53,6 @@ function getCords(cityInput, stateInput, countryInput) {
    // fetch data from api
    fetch(apiUrl).then(function (response) {
       if (response.ok) {
-         console.log(response)
          response.json().then(function (data) {
             // get latitude and longitude
             lat = data[0].lat;
