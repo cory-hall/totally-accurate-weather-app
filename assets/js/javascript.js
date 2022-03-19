@@ -43,16 +43,17 @@ function getCords(cityInput, stateInput, countryInput) {
    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + stateInput + "," + countryInput + "&limit=1&appid=" + apiKey;
 
    // not every country has a state, so allow the state input field to be left empty
-   if (stateInput == null) {
+   if (!stateInput) {
       apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + countryInput + "&limit=1&appid=" + apiKey;
    }
 
-   if (stateInput == null && countryInput == null) {
+   if (!stateInput && !countryInput) {
       apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=" + apiKey;
    }
    // fetch data from api
    fetch(apiUrl).then(function (response) {
       if (response.ok) {
+         console.log(response)
          response.json().then(function (data) {
             // get latitude and longitude
             lat = data[0].lat;
