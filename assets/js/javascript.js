@@ -44,7 +44,11 @@ function getCords(cityInput, stateInput, countryInput) {
 
    // not every country has a state, so allow the state input field to be left empty
    if (stateInput == null) {
-      "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + countryInput + "&limit=1&appid=" + apiKey;
+      apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "," + countryInput + "&limit=1&appid=" + apiKey;
+   }
+
+   if (stateInput == null && countryInput == null) {
+      apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=" + apiKey;
    }
    // fetch data from api
    fetch(apiUrl).then(function (response) {
